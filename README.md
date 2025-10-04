@@ -1,71 +1,65 @@
-# comp163-assignment-5
+COMP 163: Assignment 5 – Loop Mastery
+This repository contains solutions to three programming challenges focused on mastering different loop constructs in Python: while, for, and nested for loops. Each challenge was designed to highlight the strengths of a specific loop type and reinforce algorithmic thinking.
 
-# Challenge 1: Collatz Conjecture Sequence
-# I'm using a while loop here because I don't know how many steps it'll take to reach 1.
-# The loop will keep going until the current number becomes 1.
+🔁 Loop Design Rationale
+Challenge 1: Collatz Sequence – while Loop
+Why while? The number of iterations is unknown in advance. The loop continues until the value reaches 1, which depends on the input and cannot be predetermined.
 
-current_number = int(input("Enter starting number: "))
-step_count = 0
+How it works:
 
-print("Sequence:", end=" ")
+Start with a user-provided positive integer.
 
-while current_number != 1:
-    # Print the current number in the sequence
-    print(current_number, end=" ")
-    if current_number % 2 == 0:  
-        # If the number is even, divide it by 2
-        current_number = current_number // 2
-    else:  
-        # If the number is odd, multiply by 3 and add 1
-        current_number = 3 * current_number + 1
-    # Count how many steps we’ve taken
-    step_count += 1
+Repeatedly apply the Collatz rules:
 
-# Finally, print the last number (1) and how many steps it took
-print(1)
-print("Steps:", step_count + 1)
+If even → divide by 2
 
+If odd → multiply by 3 and add 1
 
-# Challenge 2: Prime Number Checker
-# Here I’m using a for loop because I know the range of possible divisors (from 2 up to the number-1).
-# The goal is to test if the number can be divided evenly by anything other than 1 and itself.
+Print each number in the sequence and count the steps until reaching 1.
 
-number = int(input("Enter a number: "))
+Challenge 2: Prime Checker – for Loop
+Why for? The range of possible divisors (2 to n-1) is known ahead of time, making a for loop ideal for iterating through a fixed set of values.
 
-print(f"Testing divisors from 2 to {number-1}...")
+How it works:
 
-is_prime = True
-for divisor in range(2, number):
-    if number % divisor == 0:
-        # If the number divides evenly, it’s not prime
-        print(f"{number} is not prime (divisible by {divisor})")
-        is_prime = False
-        break  # no need to check further
+Accept a positive integer greater than 1.
 
-# If nothing divided evenly, then the number is prime
-if is_prime:
-    print(f"{number} is prime!")
+Loop through all integers from 2 to n-1.
 
+Check if any divide evenly into n using the modulo operator.
 
-# Challenge 3: Multiplication Table Grid
-# For this one, I need nested loops: one loop for the rows and another for the columns.
-# It will build a full 10x10 multiplication table.
+If a divisor is found, report that the number is not prime.
 
-print("Multiplication Table:")
+If no divisors are found, confirm the number is prime.
 
-# Print the top row with column labels
-print("   ", end="")
-for col in range(1, 11):
-    print(f"{col:4}", end="")
-print()
+Challenge 3: Multiplication Grid – Nested for Loops
+Why nested for loops? A multiplication table is a 2D structure. You need one loop to iterate over rows and another to iterate over columns.
 
-# Loop through each row
-for row in range(1, 11):
-    # Print the row label first
-    print(f"{row:2}", end="")
-    # Then loop through the columns to print the products
-    for col in range(1, 11):
-        product = row * col
-        print(f"{product:4}", end="")
-    # Move to the next line after finishing a row
-    print()
+How it works:
+
+Print a header row from 1 to 10.
+
+For each row (1 to 10), print the row label.
+
+Inside that, loop through columns (1 to 10) and print the product of row × column.
+
+Use formatted spacing for clean alignment.
+
+🧠 AI Assistance
+Used for:
+
+Clarifying loop selection rationale.
+
+Reviewing formatting techniques (e.g., print(f"{product:4}", end="")).
+
+Debugging logic and edge cases.
+
+Optimizing readability and structure of explanations.
+
+Not used for:
+
+Writing core algorithms or solving the challenges directly.
+
+Copy-pasting solutions without understanding.
+
+All code was written independently, with AI used strictly for conceptual guidance and refinement in line with the assignment’s AI usage policy
